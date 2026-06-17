@@ -943,7 +943,7 @@ body::after {
 
 /* Ajuste o tamanho da sua logo por aqui */
 .img-logo {
-  height: 65px;       /* Aumentamos para 65px para dar bastante destaque! */
+  height: 70px;       /* Aumentamos para 65px para dar bastante destaque! */
   width: auto;        /* Mantém a proporção perfeita sem distorcer a imagem */
   object-fit: contain;
   margin-right: 12px; /* Aumentei um pouquinho o espaço entre a imagem e o texto */
