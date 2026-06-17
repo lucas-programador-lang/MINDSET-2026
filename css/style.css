@@ -904,28 +904,39 @@ body::after {
   .plans-grid     { grid-template-columns: 1fr; perspective: none; }
   .contacts-grid { grid-template-columns: 1fr; }
 
-  /* 🛠️ AJUSTE DO MENU MOBILE (O segredo está aqui) */
+  /* 🛠️ CONFIGURAÇÃO DO MENU FLUTUANTE NO CELULAR */
   .nav-links { 
     display: none; /* Fica escondido por padrão */
-    flex-direction: column;
-    position: absolute;
-    top: 75px; /* Alinhado com a altura do container da logo */
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 75px; /* Fica logo abaixo da barra do topo */
     left: 0;
     width: 100%;
-    background: #06091a; /* Substitua pela cor do seu fundo se necessário */
-    padding: 24px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    border-bottom: 2px solid #38d9f5; /* Linha com o ciano do site */
-    gap: 16px;
+    background: #06091a !important; /* Cor de fundo escura oficial do seu site */
+    padding: 24px !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    border-bottom: 2px solid #38d9f5 !important; /* Linha ciano futurista na borda */
+    gap: 16px !important;
+    z-index: 9999 !important;
   }
 
-  /* 🔥 GATILHO PARA EXIBIR: Ativa quando o seu script.js injeta a classe */
-  .nav-links.active, .nav-links.open { 
+  /* 🔥 GATILHO DE ABERTURA: Ativa quando o seu script.js injeta a classe .open */
+  .nav-links.open, .nav-links.active, #mobile-menu.open { 
     display: flex !important; 
   }
 
+  /* Estiliza os links dentro do menu para celular para ficarem fáceis de clicar */
+  .nav-links a {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
   .nav-cta   { display: none; }
-  .hamburger { display: flex; cursor: pointer; }
+  .hamburger { display: flex !important; cursor: pointer; z-index: 10000 !important; }
 
   .hero-badge   { font-size: .68rem; }
   .hero-stats   { gap: 20px; }
@@ -940,7 +951,7 @@ body::after {
   /* 📱 AJUSTES DA LOGO PARA CELULAR ATÉ 768px */
   .nav-container {
     height: 75px !important; 
-    justify-content: space-between !important; /* Empurra a logo pra esquerda e o hambúrguer pra direita */
+    justify-content: space-between !important; /* Joga a logo para a esquerda e o hambúrguer para a direita */
     position: relative;
   }
   .img-logo {
@@ -955,7 +966,6 @@ body::after {
     margin-left: 4px !important;
   }
 }
-
 /* ══════════════════════════════════════
    RESPONSIVE — SMALL (≤480px)
 ══════════════════════════════════════ */
