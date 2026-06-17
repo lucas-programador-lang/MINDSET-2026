@@ -259,21 +259,42 @@ body::after {
 }
 .nav-cta:hover::after { background-position: 200% center; }
 
-/* Hamburger */
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 8px;
-  margin-left: auto; border-radius: var(--radius-xs); transition: background .2s;
-}
-.hamburger:hover { background: rgba(255,255,255,.06); }
-.hamburger span {
-  display: block; width: 22px; height: 1.5px;
-  background: var(--text-primary); border-radius: 2px;
-  transition: transform .35s var(--ease-out), opacity .25s, width .25s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+/* 🍔 BOTÃO HAMBÚRGUER (Ajustado milimetricamente para o Mobile) */
+  .hamburger { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 5px !important; /* Mantém o espaçamento original do seu projeto */
+    width: auto !important;  
+    height: auto !important; 
+    cursor: pointer !important; 
+    z-index: 100000 !important; 
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important; /* Mantém a área de clique original */
+    margin: 0 !important; /* Deixa o flex do nav-container ditar o alinhamento nas pontas */
+  }
+
+  /* Garante que os traços herdem o comportamento correto no Mobile */
+  .hamburger span {
+    display: block !important;
+    width: 22px !important; /* Largura original do seu projeto */
+    height: 1.5px !important; /* Espessura original */
+    background: #ffffff !important; /* Força a cor branca para dar contraste no fundo escuro */
+    border-radius: 2px !important;
+    transition: transform .35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .25s, width .25s !important;
+  }
+
+  /* ⚡ ANIMAÇÃO DO SEU PROJETO ADAPTADA PARA AS NOVAS MEDIDAS */
+  .hamburger.open span:nth-child(1) { 
+    transform: translateY(6.5px) rotate(45deg) !important; 
+  }
+  .hamburger.open span:nth-child(2) { 
+    opacity: 0 !important; 
+    width: 0 !important; 
+  }
+  .hamburger.open span:nth-child(3) { 
+    transform: translateY(-6.5px) rotate(-45deg) !important; 
+  }
 
 /* Mobile menu */
 .mobile-menu {
