@@ -1132,7 +1132,6 @@ body::after {
    💻 CONFIGURAÇÃO PADRÃO DA LOGO (DESKTOP - COMPUTADOR)
    ============================================================ */
 
-/* Alinha a imagem e o texto perfeitamente lado a lado sem quebrar linha */
 /* ══════════════════════════════════════
    GLOBAL LOGO CONFIG (DESKTOP)
 ══════════════════════════════════════ */
@@ -1144,18 +1143,17 @@ body::after {
   white-space: nowrap !important;
 }
 
-/* Alterado para 90px com segurança */
 .img-logo {
-  height: 80px !important;       /* Subiu para 90px como você queria! */
-  width: auto !important;        /* Mantém a proporção perfeita */
+  height: 80px !important;       /* Retornado com segurança para 80px! */
+  width: auto !important;        
   object-fit: contain !important;
   margin-right: 12px !important; 
 }
 
 .logo-text {
-  font-family: var(--font-display, 'Syne', sans-serif) !important; 
+  font-family: var(--font-display) !important; 
   font-weight: 800 !important;
-  font-size: 28px !important;    /* Aumentei levemente de 26px para 28px para acompanhar o peso da nova logo */   
+  font-size: 26px !important;       
   letter-spacing: 1px !important;
   color: #38d9f5 !important;        
   text-transform: uppercase !important;
@@ -1165,12 +1163,12 @@ body::after {
 }
 
 .logo-year {
-  font-family: var(--font-mono, 'Space Mono', monospace) !important; 
+  font-family: var(--font-mono) !important; 
   color: #f5c842 !important;        
-  font-size: 15px !important;    /* Subiu para 15px para ficar proporcional */   
+  font-size: 14px !important;       
   font-weight: 700 !important;
   margin-left: 6px !important;      
   align-self: flex-start !important; 
   position: relative !important;
-  top: 2px !important;           /* Ajuste fino de descida para alinhar com o texto maior */
+  top: -1px !important;
 }
