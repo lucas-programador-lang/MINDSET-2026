@@ -957,16 +957,33 @@ body::after {
   text-decoration: none;
 }
 
+/* Estilização do texto da Logo (MINDSET) */
 .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Inter', sans-serif;
   font-weight: 800;
-  font-size: 24px;
-  letter-spacing: 1px;
-  color: #00e5ff; /* Ciano idêntico ao da imagem */
-  text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+  font-size: 26px;            /* Tamanho ideal para alinhar com a logo de 70px */
+  letter-spacing: 2px;        /* Espaçamento elegante entre as letras */
+  color: #00e5ff;             /* Ciano vibrante futurista */
+  text-transform: uppercase;
+  
+  /* Efeito de brilho neon sofisticado */
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6),
+               0 0 20px rgba(0, 229, 255, 0.2);
+  
+  display: inline-flex;
+  align-items: center;
 }
 
+/* Estilização do ano (2026) */
 .logo-year {
-  color: #ffb300; /* Dourado para o '2026' contrastar */
-  margin-left: 2px;
+  font-family: 'Space Mono', monospace; /* Fonte estilo tecnologia/código */
+  color: #f5c842;             /* O mesmo Dourado Premium que você usa no restante do site */
+  font-size: 14px;            /* Menor para ficar no topo, como um selo */
+  font-weight: 400;
+  align-self: flex-start;     /* Joga o ano um pouquinho para cima */
+  margin-left: 5px;           /* Afasta ligeiramente da palavra MINDSET */
+  letter-spacing: 1px;
+  
+  /* Brilho dourado discreto */
+  text-shadow: 0 0 8px rgba(245, 200, 66, 0.5);
 }
