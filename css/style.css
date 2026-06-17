@@ -950,42 +950,39 @@ body::after {
 }
 
 /* ============================================================
-   AJUSTE DE ALINHAMENTO DA LOGO + TEXTO NO HEADER E FOOTER
+   CORREÇÃO DEFINITIVA DO LETREIRO DA LOGO (HEADER & FOOTER)
    ============================================================ */
 
-/* Garante que o link da logo alinhe tudo perfeitamente no centro */
+/* Alinha a imagem e o texto perfeitamente lado a lado sem quebrar linha */
 .nav-logo, .footer-brand {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
   gap: 12px !important;
   text-decoration: none !important;
+  white-space: nowrap !important; /* Impede que o texto pule para baixo */
 }
 
-/* Deixa a palavra MINDSET idêntica ao padrão v2 do site */
+/* Deixa a palavra MINDSET moderna e com o ciano oficial do site */
 .logo-text {
-  font-family: 'Syne', sans-serif !important; /* Fonte Display do site */
+  font-family: 'Syne', 'Inter', sans-serif !important; 
   font-weight: 800 !important;
-  font-size: 26px !important;                 /* Tamanho robusto */
-  letter-spacing: 0.05em !important;
-  color: #38d9f5 !important;                  /* O ciano oficial (--cyan) do seu CSS */
+  font-size: 24px !important; /* Tamanho ajustado para equilibrar com os 70px */
+  letter-spacing: 1px !important;
+  color: var(--cyan) !important; /* Usa o ciano oficial #38d9f5 */
   text-transform: uppercase !important;
-  
-  /* Efeito de brilho neon futurista */
-  text-shadow: 0 0 12px rgba(56, 217, 245, 0.5) !important;
-  
   display: inline-flex !important;
   align-items: center !important;
+  white-space: nowrap !important;
 }
 
-/* Deixa o ano 2026 com o dourado premium e estilo tecnológico */
+/* Deixa o ano 2026 menor, no topo e dourado, como um selo de marca */
 .logo-year {
-  font-family: 'Space Mono', monospace !important; /* Fonte Mono do seu CSS */
-  color: #f5c842 !important;                       /* O dourado oficial (--gold) do seu CSS */
-  font-size: 15px !important;                      /* Menor, estilo selo */
+  font-family: 'Space Mono', monospace !important; 
+  color: var(--gold) !important; /* Usa o dourado oficial #f5c842 */
+  font-size: 13px !important; /* Fica menor para dar um contraste elegante */
   font-weight: 700 !important;
-  margin-left: 6px !important;                     /* Afasta da palavra */
-  opacity: 1 !important;                           /* Garante brilho máximo */
-  
-  /* Brilho dourado */
-  text-shadow: 0 0 8px rgba(245, 200, 66, 0.6) !important;
+  margin-left: 4px !important;
+  align-self: flex-start !important; /* Empurra o "2026" para o topo da palavra */
+  position: relative !important;
+  top: -2px;
 }
