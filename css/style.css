@@ -908,20 +908,20 @@ body::after {
     display: none !important; 
   }
 
-  /* 📱 CORREÇÃO DO CABEÇALHO (Adiciona fundo sólido para cobrir os textos que passam por trás) */
+  /* 📱 CORREÇÃO DO CABEÇALHO */
   #site-header {
     position: fixed !important; 
     top: 0;
     left: 0;
     width: 100%;
-    background: #020409 !important; /* Cor escura sólida oficial */
+    background: #020409 !important; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    z-index: 99999 !important; /* Garante que fica por cima de todo o conteúdo */
+    z-index: 99999 !important; 
   }
 
   /* 📱 AJUSTES DE ALINHAMENTO DA BARRA */
   .nav-container {
-    height: 70px !important; /* Altura controlada para celular */
+    height: 70px !important; 
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
@@ -931,7 +931,7 @@ body::after {
     position: relative;
   }
 
-  /* 📱 DIMENSIONAMENTO PERFEITO DA LOGO (Impede que empurre o hambúrguer) */
+  /* 📱 DIMENSIONAMENTO PERFEITO DA LOGO */
   .img-logo {
     height: 44px !important; 
     width: auto !important;
@@ -945,19 +945,48 @@ body::after {
     margin-left: 2px !important;
   }
 
-  /* 🍔 BOTÃO HAMBÚRGUER ALINHADO */
+  /* 🍔 BOTÃO HAMBÚRGUER (Restaurado com as medidas e gap originais) */
   .hamburger { 
     display: flex !important; 
-    cursor: pointer; 
+    flex-direction: column !important;
+    gap: 5px !important; /* Espaçamento original dos traços */
+    width: auto !important;  
+    height: auto !important; 
+    cursor: pointer !important; 
     z-index: 100000 !important; 
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important;
     margin: 0 !important;
+  }
+
+  /* Configuração dos traços internos idêntica ao seu design original */
+  .hamburger span {
+    display: block !important;
+    width: 22px !important; 
+    height: 1.5px !important; 
+    background: #ffffff !important; /* Cor branca para contraste absoluto */
+    border-radius: 2px !important;
+    transition: transform .35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .25s, width .25s !important;
+  }
+
+  /* ⚡ SUA ANIMAÇÃO ORIGINAL DO "X" CORRIGIDA PARA O MOBILE */
+  .hamburger.open span:nth-child(1) { 
+    transform: translateY(6.5px) rotate(45deg) !important; 
+  }
+  .hamburger.open span:nth-child(2) { 
+    opacity: 0 !important; 
+    width: 0 !important; 
+  }
+  .hamburger.open span:nth-child(3) { 
+    transform: translateY(-6.5px) rotate(-45deg) !important; 
   }
 
   /* 🛠️ CONFIGURAÇÃO ULTRA PREMIUM DO MENU MOBILE OPEN */
   .mobile-menu {
     display: block !important;
     position: fixed !important;
-    top: 75px; /* Ajuste para sincronizar perfeitamente com a altura do seu header */
+    top: 70px; /* Alinhado milimetricamente com a altura da barra móvel (70px) */
     left: 0;
     width: 100%;
     height: 0; /* Começa fechado */
@@ -976,10 +1005,10 @@ body::after {
 
   /* 🔥 GATILHO DE ABERTURA TURBINADO */
   .mobile-menu.open {
-    height: 270px !important; /* Altura ideal com respiro para os efeitos */
-    border-bottom: 2px solid #38d9f5 !important; /* Borda ciano futurista */
+    height: 270px !important; 
+    border-bottom: 2px solid #38d9f5 !important; 
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 
-                0 0 30px rgba(56, 217, 245, 0.15); /* Brilho neon suave inferior */
+                0 0 30px rgba(56, 217, 245, 0.15); 
   }
 
   /* Organização da Lista Interna */
@@ -988,7 +1017,7 @@ body::after {
     padding: 20px 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0 !important; /* Espaçamento controlado pelo padding interno dos links */
+    gap: 0 !important; 
     margin: 0 !important;
     text-align: center !important;
   }
@@ -1044,7 +1073,7 @@ body::after {
   .mobile-menu a:active {
     color: #38d9f5 !important; 
     background: rgba(56, 217, 245, 0.04) !important;
-    padding-left: 12px !important; /* Deslocamento suave e elegante do texto */
+    padding-left: 12px !important; 
   }
 
   /* Ativa o crescimento da barrinha neon */
@@ -1053,20 +1082,9 @@ body::after {
     height: 40% !important;
   }
 
-  /* ⚡ ANIMAÇÃO DAS BARRINHAS DO HAMBÚRGUER VIRANDO "X" */
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-  .hamburger.open span:nth-child(2) {
-    opacity: 0 !important;
-  }
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
-
   /* 📐 ESPAÇAMENTO DO HERO */
   #hero {
-    padding-top: 140px !important; /* Leve aumento para casar com o novo respiro do topo */
+    padding-top: 140px !important; 
   }
 
   /* Demais ajustes estruturais do mobile */
