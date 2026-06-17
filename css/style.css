@@ -908,36 +908,73 @@ body::after {
     display: none !important; 
   }
 
-  /* 🍔 BOTÃO HAMBÚRGUER (Z-index alto para ficar visível sobre tudo) */
+  /* 📱 CORREÇÃO DO CABEÇALHO (Adiciona fundo sólido para cobrir os textos que passam por trás) */
+  #site-header {
+    position: fixed !important; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #020409 !important; /* Cor escura sólida oficial */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    z-index: 99999 !important; /* Garante que fica por cima de todo o conteúdo */
+  }
+
+  /* 📱 AJUSTES DE ALINHAMENTO DA BARRA */
+  .nav-container {
+    height: 70px !important; /* Altura controlada para celular */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative;
+  }
+
+  /* 📱 DIMENSIONAMENTO PERFEITO DA LOGO (Impede que empurre o hambúrguer) */
+  .img-logo {
+    height: 44px !important; 
+    width: auto !important;
+    margin-right: 6px !important;
+  }
+  .logo-text {
+    font-size: 16px !important; 
+  }
+  .logo-year {
+    font-size: 9px !important; 
+    margin-left: 2px !important;
+  }
+
+  /* 🍔 BOTÃO HAMBÚRGUER ALINHADO */
   .hamburger { 
     display: flex !important; 
     cursor: pointer; 
-    z-index: 10000 !important; 
+    z-index: 100000 !important; 
+    margin: 0 !important;
   }
 
   /* 🛠️ CONFIGURAÇÃO DO SEU CONTAINER #MOBILE-MENU */
   .mobile-menu {
     display: block !important;
     position: fixed !important;
-    top: 75px; /* Altura exata da barra de navegação */
+    top: 70px; /* Alinhado com a nova altura da barra */
     left: 0;
     width: 100%;
     height: 0; /* Começa fechado */
-    background: #06091a !important; /* Fundo escuro do site */
+    background: #020409 !important; 
     overflow: hidden;
     transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Deslize suave */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    z-index: 9999 !important;
-    border-bottom: 0px solid #38d9f5;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+    z-index: 99998 !important;
   }
 
   /* 🔥 GATILHO DE ABERTURA: Controlado pelo seu script.js */
   .mobile-menu.open {
-    height: 240px; /* Altura ideal para conter os links */
-    border-bottom: 2px solid #38d9f5 !important; /* Detalhe ciano futurista */
+    height: 240px; /* Altura ideal para os links */
+    border-bottom: 2px solid #38d9f5 !important; 
   }
 
-  /* Estilização da lista interna (ul/li) do menu mobile */
+  /* Estilização da lista interna do menu mobile */
   .mobile-menu ul {
     list-style: none !important;
     padding: 24px !important;
@@ -960,7 +997,7 @@ body::after {
   }
 
   .mobile-menu a:hover {
-    color: #38d9f5 !important; /* Destaque ao passar o mouse */
+    color: #38d9f5 !important; 
   }
 
   /* ⚡ ANIMAÇÃO DAS BARRINHAS DO HAMBÚRGUER VIRANDO "X" */
@@ -974,6 +1011,11 @@ body::after {
     transform: translateY(-8px) rotate(-45deg) !important;
   }
 
+  /* 📐 ESPAÇAMENTO DO HERO (Garante que o badge e o título comecem abaixo da barra fixa) */
+  #hero {
+    padding-top: 130px !important; 
+  }
+
   /* Demais ajustes estruturais do mobile */
   .hero-badge   { font-size: .68rem; }
   .hero-stats   { gap: 20px; }
@@ -984,25 +1026,6 @@ body::after {
   .footer-top   { flex-direction: column; align-items: flex-start; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .section-header { margin-bottom: 48px; }
-
-  /* 📱 AJUSTES DA LOGO PARA CELULAR ATÉ 768px */
-  .nav-container {
-    height: 75px !important; 
-    justify-content: space-between !important;
-    position: relative;
-    width: 100%;
-  }
-  .img-logo {
-    height: 50px !important; 
-    margin-right: 8px !important;
-  }
-  .logo-text {
-    font-size: 19px !important; 
-  }
-  .logo-year {
-    font-size: 11px !important; 
-    margin-left: 4px !important;
-  }
 }
 
 /* ══════════════════════════════════════
@@ -1018,10 +1041,10 @@ body::after {
 
   /* 📱 AJUSTES EXTRAS PARA CELULARES MUITO PEQUENOS */
   .img-logo {
-    height: 42px !important; 
+    height: 38px !important; 
   }
   .logo-text {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 }
 
