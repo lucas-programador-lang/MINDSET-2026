@@ -205,7 +205,7 @@ body::after {
 }
 .nav-container {
   max-width: 1200px; margin: 0 auto; padding: 0 28px;
-  height: 90px; display: flex; align-items: center; gap: 40px;
+  height: 100px; display: flex; align-items: center; gap: 40px;
 }
 .nav-logo {
   display: flex; align-items: center; gap: 10px;
@@ -941,48 +941,47 @@ body::after {
   .glow-breathe { animation: none; }
 }
 
-/* Ajuste o tamanho da sua logo por aqui */
-.img-logo {
-  height: 70px;       /* Aumentamos para 65px para dar bastante destaque! */
-  width: auto;        /* Mantém a proporção perfeita sem distorcer a imagem */
-  object-fit: contain;
-  margin-right: 12px; /* Aumentei um pouquinho o espaço entre a imagem e o texto */
-}
-
 /* ============================================================
-   CORREÇÃO DEFINITIVA DO LETREIRO DA LOGO (HEADER & FOOTER)
+   AJUSTE DA LOGO EM 80PX + ALINHAMENTO DO TEXTO (HEADER & FOOTER)
    ============================================================ */
 
 /* Alinha a imagem e o texto perfeitamente lado a lado sem quebrar linha */
 .nav-logo, .footer-brand {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 14px !important;            /* Aumentei um pouco o espaço para combinar com a logo maior */
   text-decoration: none !important;
-  white-space: nowrap !important; /* Impede que o texto pule para baixo */
+  white-space: nowrap !important;  /* Impede que o texto pule para a linha de baixo */
+}
+
+/* Ajuste o tamanho da sua logo por aqui */
+.img-logo {
+  height: 80px;       /* Alterado para 80px para dar o tamanho que você quer! */
+  width: auto;        /* Mantém a proporção perfeita sem distorcer a imagem */
+  object-fit: contain;
+  margin-right: 12px; 
 }
 
 /* Deixa a palavra MINDSET moderna e com o ciano oficial do site */
 .logo-text {
-  font-family: 'Syne', 'Inter', sans-serif !important; 
+  font-family: 'Syne', sans-serif !important; 
   font-weight: 800 !important;
-  font-size: 24px !important; /* Tamanho ajustado para equilibrar com os 70px */
+  font-size: 26px !important;      /* Aumentei um pouquinho para equilibrar com a logo de 80px */
   letter-spacing: 1px !important;
-  color: var(--cyan) !important; /* Usa o ciano oficial #38d9f5 */
+  color: var(--cyan) !important;   /* Usa o ciano oficial #38d9f5 do seu site */
   text-transform: uppercase !important;
   display: inline-flex !important;
   align-items: center !important;
-  white-space: nowrap !important;
 }
 
 /* Deixa o ano 2026 menor, no topo e dourado, como um selo de marca */
 .logo-year {
   font-family: 'Space Mono', monospace !important; 
-  color: var(--gold) !important; /* Usa o dourado oficial #f5c842 */
-  font-size: 13px !important; /* Fica menor para dar um contraste elegante */
+  color: var(--gold) !important;   /* Usa o dourado oficial #f5c842 do seu site */
+  font-size: 14px !important; 
   font-weight: 700 !important;
-  margin-left: 4px !important;
+  margin-left: 5px !important;
   align-self: flex-start !important; /* Empurra o "2026" para o topo da palavra */
   position: relative !important;
-  top: -2px;
+  top: -1px;
 }
