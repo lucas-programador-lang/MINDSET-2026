@@ -880,7 +880,6 @@ body::after {
   transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
 }
 .reveal-up.visible { opacity: 1; transform: translateY(0); }
-
 /* ══════════════════════════════════════
    RESPONSIVE — TABLET (≤1024px)
 ══════════════════════════════════════ */
@@ -904,40 +903,78 @@ body::after {
   .plans-grid     { grid-template-columns: 1fr; perspective: none; }
   .contacts-grid { grid-template-columns: 1fr; }
 
-  /* 🛠️ CONFIGURAÇÃO DO MENU FLUTUANTE NO CELULAR */
-  .nav-links { 
-    display: none; /* Fica escondido por padrão */
-    flex-direction: column !important;
-    position: absolute !important;
-    top: 75px; /* Fica logo abaixo da barra do topo */
+  /* 🚫 OCULTA MENUS DESKTOP */
+  .nav-links, .nav-cta { 
+    display: none !important; 
+  }
+
+  /* 🍔 BOTÃO HAMBÚRGUER (Z-index alto para ficar visível sobre tudo) */
+  .hamburger { 
+    display: flex !important; 
+    cursor: pointer; 
+    z-index: 10000 !important; 
+  }
+
+  /* 🛠️ CONFIGURAÇÃO DO SEU CONTAINER #MOBILE-MENU */
+  .mobile-menu {
+    display: block !important;
+    position: fixed !important;
+    top: 75px; /* Altura exata da barra de navegação */
     left: 0;
     width: 100%;
-    background: #06091a !important; /* Cor de fundo escura oficial do seu site */
-    padding: 24px !important;
+    height: 0; /* Começa fechado */
+    background: #06091a !important; /* Fundo escuro do site */
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Deslize suave */
     box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    border-bottom: 2px solid #38d9f5 !important; /* Linha ciano futurista na borda */
-    gap: 16px !important;
     z-index: 9999 !important;
+    border-bottom: 0px solid #38d9f5;
   }
 
-  /* 🔥 GATILHO DE ABERTURA: Ativa quando o seu script.js injeta a classe .open */
-  .nav-links.open, .nav-links.active, #mobile-menu.open { 
-    display: flex !important; 
+  /* 🔥 GATILHO DE ABERTURA: Controlado pelo seu script.js */
+  .mobile-menu.open {
+    height: 240px; /* Altura ideal para conter os links */
+    border-bottom: 2px solid #38d9f5 !important; /* Detalhe ciano futurista */
   }
 
-  /* Estiliza os links dentro do menu para celular para ficarem fáceis de clicar */
-  .nav-links a {
+  /* Estilização da lista interna (ul/li) do menu mobile */
+  .mobile-menu ul {
+    list-style: none !important;
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    text-align: center !important;
+  }
+
+  /* Estilização dos links do menu mobile */
+  .mobile-menu a {
     color: #ffffff !important;
     font-size: 1.1rem !important;
-    text-align: center !important;
-    padding: 12px 0 !important;
+    text-decoration: none !important;
+    display: block !important;
+    padding: 10px 0 !important;
     width: 100% !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: color 0.3s ease;
   }
 
-  .nav-cta   { display: none; }
-  .hamburger { display: flex !important; cursor: pointer; z-index: 10000 !important; }
+  .mobile-menu a:hover {
+    color: #38d9f5 !important; /* Destaque ao passar o mouse */
+  }
 
+  /* ⚡ ANIMAÇÃO DAS BARRINHAS DO HAMBÚRGUER VIRANDO "X" */
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg) !important;
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg) !important;
+  }
+
+  /* Demais ajustes estruturais do mobile */
   .hero-badge   { font-size: .68rem; }
   .hero-stats   { gap: 20px; }
   .stat-divider { display: none; }
@@ -951,8 +988,9 @@ body::after {
   /* 📱 AJUSTES DA LOGO PARA CELULAR ATÉ 768px */
   .nav-container {
     height: 75px !important; 
-    justify-content: space-between !important; /* Joga a logo para a esquerda e o hambúrguer para a direita */
+    justify-content: space-between !important;
     position: relative;
+    width: 100%;
   }
   .img-logo {
     height: 50px !important; 
@@ -966,6 +1004,7 @@ body::after {
     margin-left: 4px !important;
   }
 }
+
 /* ══════════════════════════════════════
    RESPONSIVE — SMALL (≤480px)
 ══════════════════════════════════════ */
