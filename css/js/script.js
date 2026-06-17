@@ -6,29 +6,34 @@
 
 /* ── Sticky header ── */
 const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
 
 /* ── Mobile menu ── */
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
   });
-});
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
 
 /* ═══════════════════════════════════════════
    3D CANVAS BACKGROUND — Starfield + Grid
 ═══════════════════════════════════════════ */
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
   const ctx    = canvas.getContext('2d');
 
   let W, H, stars = [], gridLines = [], mouse = { x: 0, y: 0 };
@@ -158,7 +163,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
 
   // Shooting star
   let shootingStar = null;
-  let nextShoot    = 3000;
+  let nextShoot    = Date.now() + 3000;
 
   function spawnShootingStar() {
     const startX = Math.random() * W * 0.7;
@@ -182,7 +187,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     s.life -= 0.025;
     if (s.life <= 0 || s.x > W + 100 || s.y > H + 100) { shootingStar = null; return; }
     ctx.save();
-    const grad = ctx.createLinearGradient(s.x - s.vx * s.len / s.vx, s.y - s.vy * s.len / s.vy, s.x, s.y);
+    const grad = ctx.createLinearGradient(s.x - s.vx * (s.len / 6), s.y - s.vy * (s.len / 6), s.x, s.y);
     grad.addColorStop(0, `rgba(255,255,255,0)`);
     grad.addColorStop(1, `rgba(255,255,255,${s.life * 0.8})`);
     ctx.strokeStyle = grad;
@@ -226,6 +231,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
 ═══════════════════════════════════════════ */
 (function initParticles() {
   const container = document.getElementById('particles-container');
+  if (!container) return;
   const COUNT     = 30;
   const COLORS    = ['#38d9f5', '#f5c842', '#8b5cf6', '#22d3a0'];
 
@@ -370,7 +376,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
     if (href === '#') return;
-    const target = document.querySelector(href);
+    let target;
+    try {
+      target = document.querySelector(href);
+    } catch (err) {
+      return;
+    }
     if (!target) return;
     e.preventDefault();
     const top = target.getBoundingClientRect().top + window.scrollY - 80;
