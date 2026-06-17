@@ -880,6 +880,7 @@ body::after {
   transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
 }
 .reveal-up.visible { opacity: 1; transform: translateY(0); }
+
 /* ══════════════════════════════════════
    RESPONSIVE — TABLET (≤1024px)
 ══════════════════════════════════════ */
@@ -899,177 +900,14 @@ body::after {
 ══════════════════════════════════════ */
 @media (max-width: 768px) {
   .section-spacing { padding: 76px 0; }
-  .steps-grid     { grid-template-columns: 1fr; }
-  .plans-grid     { grid-template-columns: 1fr; perspective: none; }
+  .steps-grid   { grid-template-columns: 1fr; }
+  .plans-grid   { grid-template-columns: 1fr; perspective: none; }
   .contacts-grid { grid-template-columns: 1fr; }
 
-  /* 🚫 OCULTA MENUS DESKTOP */
-  .nav-links, .nav-cta { 
-    display: none !important; 
-  }
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .hamburger { display: flex; }
 
-  /* 📱 CORREÇÃO DO CABEÇALHO (Adiciona fundo sólido para cobrir os textos que passam por trás) */
-  #site-header {
-    position: fixed !important; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #020409 !important; /* Cor escura sólida oficial */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    z-index: 99999 !important; /* Garante que fica por cima de todo o conteúdo */
-  }
-
-  /* 📱 AJUSTES DE ALINHAMENTO DA BARRA */
-  .nav-container {
-    height: 70px !important; /* Altura controlada para celular */
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 16px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    position: relative;
-  }
-
-  /* 📱 DIMENSIONAMENTO PERFEITO DA LOGO (Impede que empurre o hambúrguer) */
-  .img-logo {
-    height: 44px !important; 
-    width: auto !important;
-    margin-right: 6px !important;
-  }
-  .logo-text {
-    font-size: 16px !important; 
-  }
-  .logo-year {
-    font-size: 9px !important; 
-    margin-left: 2px !important;
-  }
-
-  /* 🍔 BOTÃO HAMBÚRGUER ALINHADO */
-  .hamburger { 
-    display: flex !important; 
-    cursor: pointer; 
-    z-index: 100000 !important; 
-    margin: 0 !important;
-  }
-
- /* 🛠️ CONFIGURAÇÃO ULTRA PREMIUM DO MENU MOBILE OPEN */
-  .mobile-menu {
-    display: block !important;
-    position: fixed !important;
-    top: 75px; /* Ajuste para sincronizar perfeitamente com a altura do seu header */
-    left: 0;
-    width: 100%;
-    height: 0; /* Começa fechado */
-    
-    /* Efeito de Vidro Escuro (Glassmorphism) */
-    background: rgba(4, 7, 20, 0.92) !important; 
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    
-    overflow: hidden;
-    z-index: 99998 !important; 
-    
-    /* Transição de abertura ultra suave (estilo Apple) */
-    transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* 🔥 GATILHO DE ABERTURA TURBINADO */
-  .mobile-menu.open {
-    height: 270px !important; /* Altura ideal com respiro para os efeitos */
-    border-bottom: 2px solid #38d9f5 !important; /* Borda ciano futurista */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 
-                0 0 30px rgba(56, 217, 245, 0.15); /* Brilho neon suave inferior */
-  }
-
-  /* Organização da Lista Interna */
-  .mobile-menu ul {
-    list-style: none !important;
-    padding: 20px 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important; /* Espaçamento controlado pelo padding interno dos links */
-    margin: 0 !important;
-    text-align: center !important;
-  }
-
-  /* Preparação para a animação em cascata */
-  .mobile-menu ul li {
-    width: 100% !important;
-    margin: 0 !important;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  /* ✨ ANIMAÇÃO EM CASCATA: Os links entram um após o outro ao abrir */
-  .mobile-menu.open ul li:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-  .mobile-menu.open ul li:nth-child(2) { transition-delay: 0.18s; opacity: 1; transform: translateY(0); }
-  .mobile-menu.open ul li:nth-child(3) { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
-
-  /* 💎 ESTILIZAÇÃO INTERATIVA E REFINADA DOS LINKS */
-  .mobile-menu a {
-    font-family: var(--font-display, sans-serif) !important;
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 16px 0 !important;
-    width: 100% !important;
-    position: relative;
-    text-decoration: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
-    transition: all 0.3s ease;
-  }
-
-  /* Barrinha ciano oculta que surge na lateral esquerda ao interagir */
-  .mobile-menu a::before {
-    content: '' !important;
-    position: absolute;
-    left: 24px;
-    width: 4px;
-    height: 0%;
-    background: #38d9f5 !important;
-    box-shadow: 0 0 10px #38d9f5;
-    border-radius: 4px;
-    transition: height 0.3s ease !important;
-    display: block !important;
-  }
-
-  /* ⚡ EFEITO INTERATIVO (HOVER E TOQUE SELECIONADO) */
-  .mobile-menu a:hover,
-  .mobile-menu a:active {
-    color: #38d9f5 !important; 
-    background: rgba(56, 217, 245, 0.04) !important;
-    padding-left: 12px !important; /* Deslocamento suave e elegante do texto */
-  }
-
-  /* Ativa o crescimento da barrinha neon */
-  .mobile-menu a:hover::before,
-  .mobile-menu a:active::before {
-    height: 40% !important;
-  }
-
-  /* ⚡ ANIMAÇÃO DAS BARRINHAS DO HAMBÚRGUER VIRANDO "X" */
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-  .hamburger.open span:nth-child(2) {
-    opacity: 0 !important;
-  }
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
-
-  /* 📐 ESPAÇAMENTO DO HERO */
-  #hero {
-    padding-top: 140px !important; /* Leve aumento para casar com o novo respiro do topo */
-  }
-
-  /* Demais ajustes estruturais do mobile */
   .hero-badge   { font-size: .68rem; }
   .hero-stats   { gap: 20px; }
   .stat-divider { display: none; }
@@ -1085,20 +923,12 @@ body::after {
    RESPONSIVE — SMALL (≤480px)
 ══════════════════════════════════════ */
 @media (max-width: 480px) {
-  .container     { padding: 0 18px; }
-  .plan-card     { padding: 22px 18px; }
-  .plan-header   { flex-direction: column; gap: 10px; }
-  .plan-badge    { top: -11px; right: 16px; }
+  .container    { padding: 0 18px; }
+  .plan-card    { padding: 22px 18px; }
+  .plan-header  { flex-direction: column; gap: 10px; }
+  .plan-badge   { top: -11px; right: 16px; }
   .floating-card { padding: 11px 16px; }
   .fc-text strong { font-size: .85rem; }
-
-  /* 📱 AJUSTES EXTRAS PARA CELULARES MUITO PEQUENOS */
-  .img-logo {
-    height: 38px !important; 
-  }
-  .logo-text {
-    font-size: 14px !important;
-  }
 }
 
 /* ══════════════════════════════════════
@@ -1106,51 +936,53 @@ body::after {
 ══════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, .reveal-up { transition: none !important; animation: none !important; }
-  .reveal-up     { opacity: 1; transform: none; }
+  .reveal-up    { opacity: 1; transform: none; }
   .plan-card:hover { transform: translateY(-4px); }
   .glow-breathe { animation: none; }
 }
+
 /* ============================================================
-   💻 CONFIGURAÇÃO PADRÃO DA LOGO (DESKTOP - COMPUTADOR)
+   AJUSTE DA LOGO EM 80PX + ALINHAMENTO DO TEXTO (HEADER & FOOTER)
    ============================================================ */
 
-/* ══════════════════════════════════════
-   GLOBAL LOGO CONFIG (DESKTOP)
-══════════════════════════════════════ */
+/* Força a logo e o texto a ficarem sempre na mesma linha e alinhados */
 .nav-logo, .footer-brand {
   display: inline-flex !important;
   align-items: center !important;
   gap: 14px !important;
   text-decoration: none !important;
-  white-space: nowrap !important;
+  white-space: nowrap !important; /* Impede terminantemente a quebra de linha */
 }
 
+/* Ajuste o tamanho da sua logo por aqui */
 .img-logo {
-  height: 80px !important;       /* Retornado com segurança para 80px! */
-  width: auto !important;        
-  object-fit: contain !important;
-  margin-right: 12px !important; 
+  height: 80px;       /* Alterado para 80px para dar o tamanho que você quer! */
+  width: auto;        /* Mantém a proporção perfeita sem distorcer a imagem */
+  object-fit: contain;
+  margin-right: 12px; 
 }
 
+/* Deixa a palavra MINDSET com a fonte moderna e o ciano do site */
 .logo-text {
-  font-family: var(--font-display) !important; 
+  font-family: 'Syne', 'Inter', sans-serif !important; 
   font-weight: 800 !important;
-  font-size: 26px !important;       
+  font-size: 26px !important;       /* Tamanho ideal para combinar com a logo grande */
   letter-spacing: 1px !important;
-  color: #38d9f5 !important;        
+  color: #38d9f5 !important;        /* Força o Ciano Premium oficial */
   text-transform: uppercase !important;
   display: inline-flex !important;
   align-items: center !important;
   white-space: nowrap !important;
 }
 
+/* Deixa o ano 2026 menor, dourado e colado no topo como um selo */
 .logo-year {
-  font-family: var(--font-mono) !important; 
-  color: #f5c842 !important;        
-  font-size: 14px !important;       
+  font-family: 'Space Mono', monospace !important; 
+  color: #f5c842 !important;        /* Força o Dourado Premium oficial */
+  font-size: 14px !important;       /* Menor para dar contraste elegante */
   font-weight: 700 !important;
-  margin-left: 6px !important;      
-  align-self: flex-start !important; 
+  margin-left: 6px !important;      /* Espaço controlado entre MINDSET e 2026 */
+  align-self: flex-start !important; /* Joga o 2026 para a parte de cima da palavra */
   position: relative !important;
   top: -1px !important;
 }
