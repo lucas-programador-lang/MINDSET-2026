@@ -205,7 +205,7 @@ body::after {
 }
 .nav-container {
   max-width: 1200px; margin: 0 auto; padding: 0 28px;
-  height: 70px; display: flex; align-items: center; gap: 40px;
+  height: 90px; display: flex; align-items: center; gap: 40px;
 }
 .nav-logo {
   display: flex; align-items: center; gap: 10px;
