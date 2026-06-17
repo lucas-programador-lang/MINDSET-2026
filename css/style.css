@@ -205,7 +205,7 @@ body::after {
 }
 .nav-container {
   max-width: 1200px; margin: 0 auto; padding: 0 28px;
-  height: 100px; display: flex; align-items: center; gap: 40px;
+  height: 120px; display: flex; align-items: center; gap: 40px;
 }
 .nav-logo {
   display: flex; align-items: center; gap: 10px;
@@ -1115,6 +1115,9 @@ body::after {
    ============================================================ */
 
 /* Alinha a imagem e o texto perfeitamente lado a lado sem quebrar linha */
+/* ══════════════════════════════════════
+   GLOBAL LOGO CONFIG (DESKTOP)
+══════════════════════════════════════ */
 .nav-logo, .footer-brand {
   display: inline-flex !important;
   align-items: center !important;
@@ -1123,34 +1126,33 @@ body::after {
   white-space: nowrap !important;
 }
 
-/* Tamanho imponente de 80px para telas grandes */
+/* Alterado para 90px com segurança */
 .img-logo {
-  height: 80px;       
-  width: auto;        
-  object-fit: contain;
-  margin-right: 12px; 
+  height: 90px !important;       /* Subiu para 90px como você queria! */
+  width: auto !important;        /* Mantém a proporção perfeita */
+  object-fit: contain !important;
+  margin-right: 12px !important; 
 }
 
-/* Deixa a palavra MINDSET em ciano vibrante */
 .logo-text {
-  font-family: 'Syne', sans-serif !important; 
+  font-family: var(--font-display, 'Syne', sans-serif) !important; 
   font-weight: 800 !important;
-  font-size: 26px !important;      
+  font-size: 28px !important;    /* Aumentei levemente de 26px para 28px para acompanhar o peso da nova logo */   
   letter-spacing: 1px !important;
-  color: var(--cyan) !important;   
+  color: #38d9f5 !important;        
   text-transform: uppercase !important;
   display: inline-flex !important;
   align-items: center !important;
+  white-space: nowrap !important;
 }
 
-/* Deixa o ano 2026 menor, dourado e no topo como um selo */
 .logo-year {
-  font-family: 'Space Mono', monospace !important; 
-  color: var(--gold) !important;   
-  font-size: 14px !important; 
+  font-family: var(--font-mono, 'Space Mono', monospace) !important; 
+  color: #f5c842 !important;        
+  font-size: 15px !important;    /* Subiu para 15px para ficar proporcional */   
   font-weight: 700 !important;
-  margin-left: 5px !important;
+  margin-left: 6px !important;      
   align-self: flex-start !important; 
   position: relative !important;
-  top: -1px;
+  top: 2px !important;           /* Ajuste fino de descida para alinhar com o texto maior */
 }
