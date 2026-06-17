@@ -949,41 +949,43 @@ body::after {
   margin-right: 12px; /* Aumentei um pouquinho o espaço entre a imagem e o texto */
 }
 
-/* Estilização da Logo combinando com a imagem image_a681fb.png */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Espaço entre a imagem da logo e o texto */
-  text-decoration: none;
+/* ============================================================
+   AJUSTE DE ALINHAMENTO DA LOGO + TEXTO NO HEADER E FOOTER
+   ============================================================ */
+
+/* Garante que o link da logo alinhe tudo perfeitamente no centro */
+.nav-logo, .footer-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
 }
 
-/* Estilização do texto da Logo (MINDSET) */
+/* Deixa a palavra MINDSET idêntica ao padrão v2 do site */
 .logo-text {
-  font-family: 'Syne', 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 26px;            /* Tamanho ideal para alinhar com a logo de 70px */
-  letter-spacing: 2px;        /* Espaçamento elegante entre as letras */
-  color: #00e5ff;             /* Ciano vibrante futurista */
-  text-transform: uppercase;
+  font-family: 'Syne', sans-serif !important; /* Fonte Display do site */
+  font-weight: 800 !important;
+  font-size: 26px !important;                 /* Tamanho robusto */
+  letter-spacing: 0.05em !important;
+  color: #38d9f5 !important;                  /* O ciano oficial (--cyan) do seu CSS */
+  text-transform: uppercase !important;
   
-  /* Efeito de brilho neon sofisticado */
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6),
-               0 0 20px rgba(0, 229, 255, 0.2);
+  /* Efeito de brilho neon futurista */
+  text-shadow: 0 0 12px rgba(56, 217, 245, 0.5) !important;
   
-  display: inline-flex;
-  align-items: center;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
-/* Estilização do ano (2026) */
+/* Deixa o ano 2026 com o dourado premium e estilo tecnológico */
 .logo-year {
-  font-family: 'Space Mono', monospace; /* Fonte estilo tecnologia/código */
-  color: #f5c842;             /* O mesmo Dourado Premium que você usa no restante do site */
-  font-size: 14px;            /* Menor para ficar no topo, como um selo */
-  font-weight: 400;
-  align-self: flex-start;     /* Joga o ano um pouquinho para cima */
-  margin-left: 5px;           /* Afasta ligeiramente da palavra MINDSET */
-  letter-spacing: 1px;
+  font-family: 'Space Mono', monospace !important; /* Fonte Mono do seu CSS */
+  color: #f5c842 !important;                       /* O dourado oficial (--gold) do seu CSS */
+  font-size: 15px !important;                      /* Menor, estilo selo */
+  font-weight: 700 !important;
+  margin-left: 6px !important;                     /* Afasta da palavra */
+  opacity: 1 !important;                           /* Garante brilho máximo */
   
-  /* Brilho dourado discreto */
-  text-shadow: 0 0 8px rgba(245, 200, 66, 0.5);
+  /* Brilho dourado */
+  text-shadow: 0 0 8px rgba(245, 200, 66, 0.6) !important;
 }
