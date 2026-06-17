@@ -900,13 +900,32 @@ body::after {
 ══════════════════════════════════════ */
 @media (max-width: 768px) {
   .section-spacing { padding: 76px 0; }
-  .steps-grid    { grid-template-columns: 1fr; }
-  .plans-grid    { grid-template-columns: 1fr; perspective: none; }
+  .steps-grid     { grid-template-columns: 1fr; }
+  .plans-grid     { grid-template-columns: 1fr; perspective: none; }
   .contacts-grid { grid-template-columns: 1fr; }
 
-  .nav-links { display: none; }
+  /* 🛠️ AJUSTE DO MENU MOBILE (O segredo está aqui) */
+  .nav-links { 
+    display: none; /* Fica escondido por padrão */
+    flex-direction: column;
+    position: absolute;
+    top: 75px; /* Alinhado com a altura do container da logo */
+    left: 0;
+    width: 100%;
+    background: #06091a; /* Substitua pela cor do seu fundo se necessário */
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #38d9f5; /* Linha com o ciano do site */
+    gap: 16px;
+  }
+
+  /* 🔥 GATILHO PARA EXIBIR: Ativa quando o seu script.js injeta a classe */
+  .nav-links.active, .nav-links.open { 
+    display: flex !important; 
+  }
+
   .nav-cta   { display: none; }
-  .hamburger { display: flex; }
+  .hamburger { display: flex; cursor: pointer; }
 
   .hero-badge   { font-size: .68rem; }
   .hero-stats   { gap: 20px; }
@@ -920,17 +939,19 @@ body::after {
 
   /* 📱 AJUSTES DA LOGO PARA CELULAR ATÉ 768px */
   .nav-container {
-    height: 75px !important; /* Diminui a barra do menu para não ocupar a tela toda */
+    height: 75px !important; 
+    justify-content: space-between !important; /* Empurra a logo pra esquerda e o hambúrguer pra direita */
+    position: relative;
   }
   .img-logo {
-    height: 50px !important; /* Logo menor e elegante no celular */
+    height: 50px !important; 
     margin-right: 8px !important;
   }
   .logo-text {
-    font-size: 19px !important; /* Texto menor para não estourar a tela */
+    font-size: 19px !important; 
   }
   .logo-year {
-    font-size: 11px !important; /* Ano menor acompanhando o texto */
+    font-size: 11px !important; 
     margin-left: 4px !important;
   }
 }
@@ -948,7 +969,7 @@ body::after {
 
   /* 📱 AJUSTES EXTRAS PARA CELULARES MUITO PEQUENOS */
   .img-logo {
-    height: 42px !important; /* Encolhe um pouquinho mais se a tela for minúscula */
+    height: 42px !important; 
   }
   .logo-text {
     font-size: 16px !important;
@@ -964,8 +985,6 @@ body::after {
   .plan-card:hover { transform: translateY(-4px); }
   .glow-breathe { animation: none; }
 }
-
-
 /* ============================================================
    💻 CONFIGURAÇÃO PADRÃO DA LOGO (DESKTOP - COMPUTADOR)
    ============================================================ */
