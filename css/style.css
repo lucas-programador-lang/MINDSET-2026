@@ -205,7 +205,7 @@ body::after {
 }
 .nav-container {
   max-width: 1200px; margin: 0 auto; padding: 0 28px;
-  height: 120px; display: flex; align-items: center; gap: 40px;
+  height: 100px; display: flex; align-items: center; gap: 40px;
 }
 .nav-logo {
   display: flex; align-items: center; gap: 10px;
@@ -1149,7 +1149,7 @@ body::after {
 
 /* Alterado para 90px com segurança */
 .img-logo {
-  height: 90px !important;       /* Subiu para 90px como você queria! */
+  height: 80px !important;       /* Subiu para 90px como você queria! */
   width: auto !important;        /* Mantém a proporção perfeita */
   object-fit: contain !important;
   margin-right: 12px !important; 
