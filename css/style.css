@@ -943,10 +943,10 @@ body::after {
 
 /* Ajuste o tamanho da sua logo por aqui */
 .img-logo {
-  height: 52px;       /* Aumentei de 35px para 52px para dar mais destaque! */
-  width: auto;        /* Mantém a proporção para não amassar a imagem */
+  height: 65px;       /* Aumentamos para 65px para dar bastante destaque! */
+  width: auto;        /* Mantém a proporção perfeita sem distorcer a imagem */
   object-fit: contain;
-  margin-right: 10px; /* Dá um espacinho entre a logo e o texto */
+  margin-right: 12px; /* Aumentei um pouquinho o espaço entre a imagem e o texto */
 }
 
 /* Estilização da Logo combinando com a imagem image_a681fb.png */
