@@ -948,3 +948,25 @@ body::after {
   object-fit: contain;
   margin-right: 10px; /* Dá um espacinho entre a logo e o texto */
 }
+
+/* Estilização da Logo combinando com a imagem image_a681fb.png */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre a imagem da logo e o texto */
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #00e5ff; /* Ciano idêntico ao da imagem */
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.logo-year {
+  color: #ffb300; /* Dourado para o '2026' contrastar */
+  margin-left: 2px;
+}
